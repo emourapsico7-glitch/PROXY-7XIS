@@ -14,6 +14,19 @@ document.getElementById('tcpip-btn').addEventListener('click', async ()=>{
   document.getElementById('out').textContent = JSON.stringify(r, null, 2);
 });
 
+document.getElementById('pair-btn').addEventListener('click', async ()=>{
+  const ip = document.getElementById('pair-ip').value.trim();
+  const port = document.getElementById('pair-port').value.trim();
+  const code = document.getElementById('pair-code').value.trim();
+  if(!ip){ alert('Informe o IP do dispositivo'); return; }
+  document.getElementById('out').textContent = `Emparelhando ${ip}${port? ':'+port : ''} ...`;
+  const payload = { ip };
+  if(port) payload.port = port;
+  if(code) payload.code = code;
+  const r = await post('/conectar/api/pair', payload);
+  document.getElementById('out').textContent = JSON.stringify(r, null, 2);
+});
+
 document.getElementById('connect-btn').addEventListener('click', async ()=>{
   const ip = document.getElementById('ip').value.trim();
   const port = document.getElementById('port').value || '5555';

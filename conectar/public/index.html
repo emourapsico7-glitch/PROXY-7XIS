@@ -10,6 +10,7 @@
     input { width: 300px; padding:6px }
     button { margin-top:8px; padding:8px 12px }
     pre { background:#f6f8fa; padding:12px; border-radius:6px }
+    .note { color:#555; font-size:0.9em }
   </style>
 </head>
 <body>
@@ -22,6 +23,19 @@
     <input id="tcpip-port" value="5555" />
     <br>
     <button id="tcpip-btn">Executar adb tcpip</button>
+  </section>
+
+  <section>
+    <h2>Passo 1.5 — Emparelhamento (Android 11+ Wireless Debugging)</h2>
+    <p class="note">Se o seu Android oferece "Wireless debugging" (Android 11+), use o fluxo de emparelhamento: no dispositivo ative Wireless debugging e escolha "Pair device with pairing code"; o dispositivo mostrará um endereço (ip:port) e um código de emparelhamento.</p>
+    <label>Endereço do dispositivo (IP)</label>
+    <input id="pair-ip" placeholder="192.168.1.42" />
+    <label>Porta (conforme mostrado no dispositivo; deixe vazio se não souber)</label>
+    <input id="pair-port" placeholder="(ex: 37199)" />
+    <label>Código de emparelhamento (se houver)</label>
+    <input id="pair-code" placeholder="123456" />
+    <br>
+    <button id="pair-btn">Emparelhar (pair)</button>
   </section>
 
   <section>
